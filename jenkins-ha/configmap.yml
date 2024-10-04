@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-config
+  namespace: devops-tools
+data:
+  hudson.model.UpdateCenter.xml: |
+    <?xml version='1.1' encoding='UTF-8'?>
+    <sites>
+      <site>
+        <id>default</id>
+        <url>http://updates.jenkins-ci.org/update-center.json</url>
+      </site>
+    </sites>
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-hosts
+  namespace: devops-tools
+data:
+  hosts: |
+    # Jenkins update site
+    52.202.51.185 updates.jenkins-ci.org
